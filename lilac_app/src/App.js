@@ -1,12 +1,16 @@
-import React from 'react';
-import { Routes, Route, Link } from "react-router-dom";
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import { Routes, Route, Link } from 'react-router-dom'
+import logo from './logo.svg'
+import { Counter } from './features/counter/Counter'
+import './App.css'
 
 function Home() {
   return (
     <>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <main>
         <h2>Welcome to the homepage!</h2>
         <p>You can do this, I believe in you.</p>
@@ -15,24 +19,24 @@ function Home() {
         <Link to="/about">About</Link>
       </nav>
     </>
-  );
+  )
 }
 
 function About() {
   return (
     <>
+      <Helmet>
+        <title>About</title>
+      </Helmet>
       <main>
         <h2>Who are we?</h2>
-        <p>
-          That feels like an existential question, don't you
-          think?
-        </p>
+        <p>That feels like an existential question, don't you think?</p>
       </main>
       <nav>
         <Link to="/">Home</Link>
       </nav>
     </>
-  );
+  )
 }
 
 function App() {
@@ -88,7 +92,7 @@ function App() {
         </span>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
