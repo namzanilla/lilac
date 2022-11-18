@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import React from 'react'
 
-export default function Index() {
+export default function AboutPage() {
   return (
     <>
       <Helmet>
