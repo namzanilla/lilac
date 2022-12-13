@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
-export default function Loader () {
+export default function Loader() {
   return (
     <Wrap>
       <div />
