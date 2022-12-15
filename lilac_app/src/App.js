@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Routes, Route } from 'react-router-dom'
 
 import Loader from './components/Loader'
-import NavigationBar from './components/NavigationBar'
+import Header from './components/Header'
 
 const HomePage = lazy(() => import('./components/HomePage'))
 const AboutPage = lazy(() => import('./components/AboutPage'))
@@ -13,7 +13,7 @@ function App() {
   return (
     <StyledApp>
       <Suspense fallback={<Loader />}>
-        <NavigationBar />
+        <Header />
         <Routes>
           <Route path="/" element={<HomePage langCode="uk" />} />
           <Route path="/ru" element={<HomePage langCode="ru" />} />

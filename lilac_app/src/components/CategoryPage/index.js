@@ -1,23 +1,8 @@
-import { Helmet } from 'react-helmet'
 import React from 'react'
 import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
 
 import ProductsItem from './ProductsItem'
-
-const arImgSrc = [
-  '/images/gold-kruzer-1.jpg',
-  '/images/invenio-1.jpg',
-  '/images/invenio-pro-1.jpg',
-  '/images/nokta-makro-anfibio-multi-metal-detector-1.jpg',
-  '/images/nokta-makro-gold-finder-2000-1.jpg',
-  '/images/nokta-makro-impact-metal-detector-1.jpg',
-  '/images/nokta-makro-midi-hoard-kids-detector-1.jpg',
-  '/images/nokta-makro-mini-hoard-kids-detector-1.jpg',
-  '/images/nokta-makro-pulsedive-scuba-detector-yellow-1.jpg',
-  '/images/nokta-makro-pulsedive-scuba-yellow-1.jpg',
-  '/images/nokta-makro-simplex-metal-detector-1.jpg',
-  '/images/nokta-makro-the-legend-1.jpg',
-].reverse()
 
 export default function CategoryPage() {
   return (
@@ -27,7 +12,7 @@ export default function CategoryPage() {
       </Helmet>
       <Wrap>
         <h1>Category H1</h1>
-        <Items className={`c${arImgSrc.length}`}>
+        <Items>
           {arImgSrc.map((imgSrc, ix) => {
             return (
               <ProductsItem
@@ -45,6 +30,21 @@ export default function CategoryPage() {
     </>
   )
 }
+
+const arImgSrc = [
+  '/images/gold-kruzer-1.jpg',
+  '/images/invenio-1.jpg',
+  '/images/invenio-pro-1.jpg',
+  '/images/nokta-makro-anfibio-multi-metal-detector-1.jpg',
+  '/images/nokta-makro-gold-finder-2000-1.jpg',
+  '/images/nokta-makro-impact-metal-detector-1.jpg',
+  '/images/nokta-makro-midi-hoard-kids-detector-1.jpg',
+  '/images/nokta-makro-mini-hoard-kids-detector-1.jpg',
+  '/images/nokta-makro-pulsedive-scuba-detector-yellow-1.jpg',
+  '/images/nokta-makro-pulsedive-scuba-yellow-1.jpg',
+  '/images/nokta-makro-simplex-metal-detector-1.jpg',
+  '/images/nokta-makro-the-legend-1.jpg',
+].reverse()
 
 const Wrap = styled.div`
   padding: 0 16px 0;

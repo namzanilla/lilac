@@ -1,11 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import LanguageSwitcher from 'components/LanguageSwitcher'
+import Logo from 'components/Logo'
+import { BsFillCartFill } from 'react-icons/bs'
 
-export default function NavigationBar() {
+export default function Header() {
   return (
     <Wrap>
-      <nav>
+      <Inner>
+        <Link to="/">
+          <Logo />
+        </Link>
         <Link to="/c">Металошукачі</Link>
         <Link to="/c">
           Котушки до
@@ -23,22 +29,36 @@ export default function NavigationBar() {
           <br />
           журнали
         </Link>
-      </nav>
-    </Wrap>
+        <div>
+          <LanguageSwitcher />
+          <Link to="/cart">
+            <BsFillCartFill size={20} />
+          </Link>
+        </div>
+      </Inner>
+   </Wrap>
   )
 }
 
-const Wrap = styled.div`
-  padding: 24px 0;
-  nav {
+const Wrap = styled.header`
+  background: #eee;
+`
+
+const Inner = styled.div`
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+  max-width: 1920px;
+  margin: 0 auto;
+  > div {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: center;
-    align-content: stretch;
-    max-width: 1920px;
-    margin: 0 auto;
+    > a {
+      margin-left: 8px;
+    }
   }
   a {
     color: #000;
