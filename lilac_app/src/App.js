@@ -3,9 +3,9 @@ import { useRoutes } from 'react-router-dom'
 import Loader from 'components/Loader'
 import Header from 'components/Header'
 
-const HomePage = lazy(() => import('components/HomePage'))
-const AboutPage = lazy(() => import('components/AboutPage'))
-const CategoryPage = lazy(() => import('components/CategoryPage'))
+const HomePage = lazy(() => import('components/HOCs/Home'))
+const AboutPage = lazy(() => import('components/HOCs/About'))
+const CategoryPage = lazy(() => import('components/HOCs/Category'))
 
 const routes = [
   {

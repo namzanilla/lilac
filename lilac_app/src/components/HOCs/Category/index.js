@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 
 import ProductsItem from './ProductsItem'
 
-export default function CategoryPage() {
+export default function Category() {
   return (
     <>
       <Helmet>

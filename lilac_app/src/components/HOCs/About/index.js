@@ -2,18 +2,18 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import React from 'react'
 
-export default function HomePage() {
+export default function About() {
   return (
     <>
       <Helmet>
-        <title>Home</title>
+        <title>About</title>
       </Helmet>
       <main>
-        <h2>Welcome to the homepage!</h2>
-        <p>You can do this, I believe in you.</p>
+        <h2>Who are we?</h2>
+        <p>That feels like an existential question, don't you think?</p>
       </main>
       <nav>
-        <Link to="/about">About</Link>
+        <Link to="/">Home</Link>
       </nav>
     </>
   )
