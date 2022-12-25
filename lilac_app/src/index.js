@@ -12,30 +12,6 @@ import './i18n'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: "Roboto-Regular";
-    src: local("Roboto-Regular"), url("/fonts/roboto/Roboto-Regular.ttf") format("opentype");
-  }
-  @font-face {
-    font-family: "Roboto-Thin";
-    src: local("Roboto-Thin"), url("/fonts/roboto/Roboto-Thin.ttf") format("opentype");
-  }
-  @font-face {
-    font-family: "Roboto-Bold";
-    src: local("Roboto-Bold"), url("/fonts/roboto/Roboto-Bold.ttf") format("opentype");
-  }
-  @font-face {
-    font-family: "RobotoCondensed-Light";
-    src: local("RobotoCondensed-Light"), url("/fonts/roboto_condensed/RobotoCondensed-Light.ttf") format("opentype");
-  }
-  @font-face {
-    font-family: "RobotoCondensed-Regular";
-    src: local("RobotoCondensed-Regular"), url("/fonts/roboto_condensed/RobotoCondensed-Regular.ttf") format("opentype");
-  }
-  @font-face {
-    font-family: "RobotoCondensed-Bold";
-    src: local("RobotoCondensed-Bold"), url("/fonts/roboto_condensed/RobotoCondensed-Bold.ttf") format("opentype");
-  }
   *,
   *::before,
   *::after {

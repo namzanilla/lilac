@@ -36,11 +36,11 @@ const Wrap = styled.div`
     span {
       text-decoration: none;
       font-size: 12px;
-      margin-left: 16px;
+      margin-left: 24px;
       position: relative;
       color: #000;
       font-weight: bold;
-      font-family: "RobotoCondensed-Regular";
+      font-family: "RobotoCondensed-Light";
       :first-child {
         margin-left: 0;
       }
