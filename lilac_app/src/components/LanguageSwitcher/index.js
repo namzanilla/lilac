@@ -16,8 +16,8 @@ export default function LanguageSwitcher() {
 
 const Wrap = styled.div`
   display: flex;
-  align-items: center;
   a {
     margin-left: 8px;
+    font-size: 12px;
   }
 `

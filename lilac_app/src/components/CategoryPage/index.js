@@ -48,6 +48,7 @@ const arImgSrc = [
 
 const Wrap = styled.div`
   padding: 0 16px 0;
+  background: #F6F6F6;
 `
 
 const Items = styled.div`
