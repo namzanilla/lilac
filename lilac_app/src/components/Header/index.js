@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import LanguageSwitcher from 'components/LanguageSwitcher'
-import Logo from 'components/Logo'
 import { BsFillCartFill } from 'react-icons/bs'
 import { RxDoubleArrowRight } from 'react-icons/rx'
+
+import LanguageSwitcher from 'components/LanguageSwitcher'
+import Logo from 'components/Logo'
 
 export default function Header() {
   return (
@@ -86,7 +87,7 @@ const Cart = styled.div`
 
 const Catalog = styled.div`
   height: 50px;
-  right: -1px;
+  right: 0;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -109,16 +110,16 @@ const Catalog = styled.div`
 
 const ColLeft = styled.div`
   width: 200px;
-  flex-shrink: 0;
-  border-right: 1px solid #204468;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-color: #fff;
-  :first-child {
-    margin-top: -50px;
+  >a {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    background-color: #e5d8f0;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #204468;
   }
 `
 
@@ -158,8 +159,6 @@ const ColRightRowBottom = styled.div`
       text-align: center;
       margin-left: 32px;
       text-transform: uppercase;
-      /* font-size: 16px; */
-      /* font-weight: bold; */
       font-family: "RobotoCondensed-Bold";
     }
   }

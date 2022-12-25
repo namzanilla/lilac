@@ -24,7 +24,6 @@ export default function Logo() {
 }
 
 const Wrap = styled.div`
-  background: #e5d8f0;
   border-radius: 4px;
   padding: 10px;
   display: inline-flex;
@@ -35,7 +34,7 @@ const Wrap = styled.div`
   div:first-child {
     span {
       text-decoration: none;
-      font-size: 12px;
+      font-size: 20px;
       margin-left: 24px;
       position: relative;
       color: #000;
@@ -47,7 +46,7 @@ const Wrap = styled.div`
     }
   }
   div:last-child {
-    font-size: 10px;
+    font-size: 16px;
     justify-content: space-between;
     font-family: "Roboto-Bold";
     span {
