@@ -10,31 +10,31 @@ const CategoryPage = lazy(() => import('components/HOCs/Category'))
 const routes = [
   {
     path: '/',
-    element: <HomePage />
+    element: <HomePage />,
   },
   {
     path: '/about',
-    element: <AboutPage />
+    element: <AboutPage />,
   },
   {
     path: '/metal-detectors',
-    element: <CategoryPage />
+    element: <CategoryPage />,
   },
   {
     path: '/metal-detector-coils',
-    element: <CategoryPage />
+    element: <CategoryPage />,
   },
   {
     path: '/magnets',
-    element: <CategoryPage />
+    element: <CategoryPage />,
   },
   {
     path: '/accessories',
-    element: <CategoryPage />
-  }
+    element: <CategoryPage />,
+  },
 ]
 
-const RouteList = function() {
+const RouteList = function () {
   return useRoutes(routes)
 }
 

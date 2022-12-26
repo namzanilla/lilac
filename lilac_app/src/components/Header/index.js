@@ -24,7 +24,7 @@ export default function Header() {
       </ColLeft>
       <ColRight>
         <ColRightRowTop>
-          <div>  
+          <div>
             <Link to="/delivery">Доставка</Link>
             <Link to="/payment">Оплата</Link>
             <Link to="/faq">FAQ</Link>
@@ -42,21 +42,17 @@ export default function Header() {
               <br />
               металошукачів
             </Link>
-            <Link to="/magnets">
-              Магніти
-            </Link>
-            <Link to="/accessories">
-              Аксесуари
-            </Link>
+            <Link to="/magnets">Магніти</Link>
+            <Link to="/accessories">Аксесуари</Link>
           </nav>
           <Cart>
             <Link to="/cart">
               <BsFillCartFill size={20} color="#000" />
             </Link>
-          </Cart>  
+          </Cart>
         </ColRightRowBottom>
       </ColRight>
-   </Wrap>
+    </Wrap>
   )
 }
 
@@ -66,7 +62,7 @@ const Wrap = styled.header`
   background: repeating-linear-gradient(
     -45deg,
     #e8ebed,
-    #e8ebed  10px,
+    #e8ebed 10px,
     transparent 10px,
     transparent 20px
   );
@@ -112,7 +108,7 @@ const ColLeft = styled.div`
   width: 200px;
   position: relative;
   background-color: #fff;
-  >a {
+  > a {
     display: flex;
     width: 100%;
     height: 70px;
@@ -137,9 +133,9 @@ const ColRightRowTop = styled.div`
   border-bottom: 1px solid #204468;
   align-items: center;
   height: 40px;
-  >div:first-child a {
+  > div:first-child a {
     margin-left: 32px;
-    font-family: "Roboto-Regular";
+    font-family: 'Roboto-Regular';
     font-size: 14px;
   }
 `
@@ -159,7 +155,7 @@ const ColRightRowBottom = styled.div`
       text-align: center;
       margin-left: 32px;
       text-transform: uppercase;
-      font-family: "RobotoCondensed-Bold";
+      font-family: 'RobotoCondensed-Bold';
     }
   }
 `

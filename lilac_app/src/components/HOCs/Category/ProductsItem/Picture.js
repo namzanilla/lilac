@@ -6,11 +6,7 @@ export default function Picture(props) {
 
   return (
     <Wrap>
-      <div>
-        {imgSrc ? (
-          <img loading="lazy" src={imgSrc} alt="" />
-        ) : null}
-      </div>
+      <div>{imgSrc ? <img loading="lazy" src={imgSrc} alt="" /> : null}</div>
     </Wrap>
   )
 }

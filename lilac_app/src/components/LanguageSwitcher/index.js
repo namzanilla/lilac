@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { GrLanguage } from 'react-icons/gr';
+import { GrLanguage } from 'react-icons/gr'
 
 export default function LanguageSwitcher() {
   return (

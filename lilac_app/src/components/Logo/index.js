@@ -39,7 +39,7 @@ const Wrap = styled.div`
       position: relative;
       color: #000;
       font-weight: bold;
-      font-family: "RobotoCondensed-Light";
+      font-family: 'RobotoCondensed-Light';
       :first-child {
         margin-left: 0;
       }
@@ -48,7 +48,7 @@ const Wrap = styled.div`
   div:last-child {
     font-size: 16px;
     justify-content: space-between;
-    font-family: "Roboto-Bold";
+    font-family: 'Roboto-Bold';
     span {
       color: #204468;
     }

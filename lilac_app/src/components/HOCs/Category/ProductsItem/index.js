@@ -5,13 +5,7 @@ import Picture from './Picture'
 import BuyButton from './BuyButton'
 
 export default function CategoryPage(props) {
-  const {
-    imgSrc,
-    inCart,
-    productName,
-    price,
-    currency
-  } = props
+  const { imgSrc, inCart, productName, price, currency } = props
 
   return (
     <Wrap>
