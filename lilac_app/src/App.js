@@ -1,7 +1,9 @@
 import React, { Suspense, lazy } from 'react'
 import { useRoutes } from 'react-router-dom'
+
 import Loader from 'components/Loader'
 import Header from 'components/Header'
+import Footer from 'components/Footer'
 
 const HomePage = lazy(() => import('components/HOCs/Home'))
 const AboutPage = lazy(() => import('components/HOCs/About'))
@@ -50,6 +52,7 @@ export default function App() {
       <Suspense fallback={<Loader />}>
         <RouteList />
       </Suspense>
+      <Footer />
     </>
   )
 }

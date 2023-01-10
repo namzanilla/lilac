@@ -6,10 +6,7 @@ import ProductsItem from './ProductsItem'
 
 export default function Category() {
   return (
-    <Layout
-      h1="Category H1"
-      title="Category H1"
-    >
+    <Layout h1="Category H1" title="Category H1">
       <Items>
         {arImgSrc.map((imgSrc, ix) => {
           return (

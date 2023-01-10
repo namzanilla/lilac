@@ -3,11 +3,7 @@ import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 
 export default function Layout(props) {
-  const {
-    children,
-    h1 = '',
-    title = ''
-  } = props
+  const { children, h1 = '', title = '' } = props
 
   return (
     <Wrap>
@@ -21,6 +17,7 @@ export default function Layout(props) {
 }
 
 const Wrap = styled.div`
-  padding: 0 16px 0;
-  background: #f6f6f6;
+  //padding: 0 16px 0;
+  //background: #f6f6f6;
+  flex-grow: 1;
 `

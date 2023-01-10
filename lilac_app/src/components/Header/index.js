@@ -9,7 +9,7 @@ import Logo from 'components/Logo'
 
 export default function Header() {
   return (
-    <Wrap>
+    <Wrap className="bg-linear">
       <ColLeft>
         <Link style={{ textDecoration: 'none' }} to="/">
           <Logo />
@@ -57,15 +57,10 @@ export default function Header() {
 }
 
 const Wrap = styled.header`
+  flex-grow: 0;
+  flex-shrink: 0;
   display: flex;
   align-items: stretch;
-  background: repeating-linear-gradient(
-    -45deg,
-    #e8ebed,
-    #e8ebed 10px,
-    transparent 10px,
-    transparent 20px
-  );
 `
 
 const CartWrap = styled.div`
@@ -138,7 +133,7 @@ const ColRightRowTop = styled.div`
     font-family: 'Roboto-Regular';
     font-size: 14px;
   }
-  >div:last-child {
+  > div:last-child {
     height: 100%;
   }
 `

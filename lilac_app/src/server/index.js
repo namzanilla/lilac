@@ -50,7 +50,7 @@ app.use((ctx) => {
     </body>
   </html>
   `
-});
+})
 
 app.use(serve(`${__dirname}/../../public`))
 

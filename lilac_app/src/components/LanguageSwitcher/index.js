@@ -24,7 +24,7 @@ const Wrap = styled.div`
   a {
     margin-left: 8px;
     font-size: 12px;
-    font-family: "Roboto-Bold";
+    font-family: 'Roboto-Bold';
   }
   svg {
     display: block;
