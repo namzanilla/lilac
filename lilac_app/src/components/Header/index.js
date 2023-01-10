@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { BsFillCartFill } from 'react-icons/bs'
-import { RxDoubleArrowRight } from 'react-icons/rx'
+import { Cart } from '@styled-icons/ionicons-outline'
+import { ArrowForward } from '@styled-icons/ionicons-outline'
 
 import LanguageSwitcher from 'components/LanguageSwitcher'
 import Logo from 'components/Logo'
@@ -18,7 +18,7 @@ export default function Header() {
           <Link to="/catalog">
             <span>Каталог</span>
             &nbsp;
-            <RxDoubleArrowRight size={16} />
+            <ArrowForward size={24} />
           </Link>
         </Catalog>
       </ColLeft>
@@ -45,11 +45,11 @@ export default function Header() {
             <Link to="/magnets">Магніти</Link>
             <Link to="/accessories">Аксесуари</Link>
           </nav>
-          <Cart>
+          <CartWrap>
             <Link to="/cart">
-              <BsFillCartFill size={20} color="#000" />
+              <Cart size={24} color="#204468" />
             </Link>
-          </Cart>
+          </CartWrap>
         </ColRightRowBottom>
       </ColRight>
     </Wrap>
@@ -68,7 +68,7 @@ const Wrap = styled.header`
   );
 `
 
-const Cart = styled.div`
+const CartWrap = styled.div`
   padding: 0 16px;
   background-color: #fff;
   height: 100%;
@@ -137,6 +137,9 @@ const ColRightRowTop = styled.div`
     margin-left: 32px;
     font-family: 'Roboto-Regular';
     font-size: 14px;
+  }
+  >div:last-child {
+    height: 100%;
   }
 `
 
