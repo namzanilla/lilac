@@ -6,6 +6,7 @@ import Header from 'components/Header'
 const HomePage = lazy(() => import('components/HOCs/Home'))
 const AboutPage = lazy(() => import('components/HOCs/About'))
 const CategoryPage = lazy(() => import('components/HOCs/Category'))
+const DeliveryPage = lazy(() => import('components/HOCs/Delivery'))
 
 const routes = [
   {
@@ -31,6 +32,10 @@ const routes = [
   {
     path: '/accessories',
     element: <CategoryPage />,
+  },
+  {
+    path: '/delivery',
+    element: <DeliveryPage />,
   },
 ]
 

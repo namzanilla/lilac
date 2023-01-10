@@ -1,33 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Helmet } from 'react-helmet'
 
+import Layout from 'components/Layout'
 import ProductsItem from './ProductsItem'
 
 export default function Category() {
   return (
-    <>
-      <Helmet>
-        <title>Category Page</title>
-      </Helmet>
-      <Wrap>
-        <h1>Category H1</h1>
-        <Items>
-          {arImgSrc.map((imgSrc, ix) => {
-            return (
-              <ProductsItem
-                key={ix}
-                inCart={ix % 2}
-                imgSrc={imgSrc}
-                productName="Product Name"
-                price="13 400"
-                currency="грн"
-              />
-            )
-          })}
-        </Items>
-      </Wrap>
-    </>
+    <Layout
+      h1="Category H1"
+      title="Category H1"
+    >
+      <Items>
+        {arImgSrc.map((imgSrc, ix) => {
+          return (
+            <ProductsItem
+              key={ix}
+              inCart={ix % 2}
+              imgSrc={imgSrc}
+              productName="Product Name"
+              price="13 400"
+              currency="грн"
+            />
+          )
+        })}
+      </Items>
+    </Layout>
   )
 }
 
@@ -45,11 +42,6 @@ const arImgSrc = [
   '/images/nokta-makro-simplex-metal-detector-1.jpg',
   '/images/nokta-makro-the-legend-1.jpg',
 ].reverse()
-
-const Wrap = styled.div`
-  padding: 0 16px 0;
-  background: #f6f6f6;
-`
 
 const Items = styled.div`
   max-width: 1920px;
