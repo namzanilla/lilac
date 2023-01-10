@@ -26,6 +26,7 @@ const Wrap = styled.div`
   overflow: hidden;
   padding-bottom: 56px;
   position: relative;
+  background: #fff;
 `
 
 const ProductName = styled.div`

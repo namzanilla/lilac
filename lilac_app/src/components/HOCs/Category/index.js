@@ -8,22 +8,24 @@ import ProductsItem from './ProductsItem'
 export default function Category() {
   return (
     <Layout h1="Category H1" title="Category H1">
-      <Container>
-        <Items>
-          {arImgSrc.map((imgSrc, ix) => {
-            return (
-              <ProductsItem
-                key={ix}
-                inCart={ix % 2}
-                imgSrc={imgSrc}
-                productName="Product Name"
-                price="13 400"
-                currency="грн"
-              />
-            )
-          })}
-        </Items>
-      </Container>
+      <ItemsWrap>
+        <Container>
+          <Items>
+            {arImgSrc.map((imgSrc, ix) => {
+              return (
+                <ProductsItem
+                  key={ix}
+                  inCart={ix % 2}
+                  imgSrc={imgSrc}
+                  productName="Product Name"
+                  price="13 400"
+                  currency="грн"
+                />
+              )
+            })}
+          </Items>
+        </Container>
+      </ItemsWrap>
     </Layout>
   )
 }
@@ -43,11 +45,16 @@ const arImgSrc = [
   '/images/nokta-makro-the-legend-1.jpg',
 ].reverse()
 
+const ItemsWrap = styled.div`
+  background-color: #e8ebed;
+  margin-bottom: -16px;
+`
 const Items = styled.div`
   max-width: 1920px;
   margin: 0 auto;
   display: grid;
   grid-gap: 16px;
+  padding: 16px 0;
   @media (max-width: 959px) {
     grid-template-columns: repeat(2, 1fr);
     > div {

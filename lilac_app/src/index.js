@@ -74,7 +74,7 @@ const GlobalStyle = createGlobalStyle`
   }
   h1 {
     font-size: 24px;
-    padding: 24px 0 66px;
+    padding: 24px 0;
     line-height: 150%;
   }
   a {

@@ -15,4 +15,5 @@ const Wrap = styled.footer`
   flex-grow: 0;
   flex-shrink: 0;
   border-top: 1px solid #204468;
+  margin-top: 16px;
 `
