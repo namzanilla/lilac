@@ -1,26 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Container from 'components/Container'
 import Layout from 'components/Layout'
 import ProductsItem from './ProductsItem'
 
 export default function Category() {
   return (
     <Layout h1="Category H1" title="Category H1">
-      <Items>
-        {arImgSrc.map((imgSrc, ix) => {
-          return (
-            <ProductsItem
-              key={ix}
-              inCart={ix % 2}
-              imgSrc={imgSrc}
-              productName="Product Name"
-              price="13 400"
-              currency="грн"
-            />
-          )
-        })}
-      </Items>
+      <Container>
+        <Items>
+          {arImgSrc.map((imgSrc, ix) => {
+            return (
+              <ProductsItem
+                key={ix}
+                inCart={ix % 2}
+                imgSrc={imgSrc}
+                productName="Product Name"
+                price="13 400"
+                currency="грн"
+              />
+            )
+          })}
+        </Items>
+      </Container>
     </Layout>
   )
 }

@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 
+import Container from 'components/Container'
+
 export default function Layout(props) {
   const { children, h1 = '', title = '' } = props
 
@@ -10,7 +12,9 @@ export default function Layout(props) {
       <Helmet>
         <title>{title}</title>
       </Helmet>
-      <h1>{h1}</h1>
+      <Container>
+        <h1>{h1}</h1>
+      </Container>
       {children}
     </Wrap>
   )
