@@ -1,7 +1,7 @@
 {
   "name": "lilac_s0",
   "version": "1.0.0",
-  "description": "Команда для создания нового файла:",
+  "description": "Сервис по работе с изображениями для товаров",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
