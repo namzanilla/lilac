@@ -40,13 +40,27 @@ async function createFile() {
     const height = sizes[key][1]
     const outputFile = `${dir}/${key}.${ext}`
 
-    await sharp(oFile)
-      .resize(width, height)
+    const image = sharp(oFile)
+    const metadata = await image.metadata()
+
+    const resizeOptions = {
+      fit: sharp.fit.contain,
+    }
+
+    if (metadata.width > metadata.height) {
+      resizeOptions.width = width
+    } else if (metadata.width < metadata.height) {
+      resizeOptions.height = height
+    } else {
+      resizeOptions.width = width
+      resizeOptions.height = height
+    }
+
+    await image.resize(resizeOptions)
       .toFile(outputFile)
+
     console.log(`File ${outputFile} was created`)
   }
-
-  console.log(dir)
 }
 
 function getDirName() {
