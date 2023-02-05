@@ -1,13 +1,11 @@
 const fs = require('fs')
 const path = require('path')
+const sharp = require('sharp')
 
 const allowedFileTypes = [ 'jpg' ]
 const { resolve } = path
-const dirName = require('../dir_name.json')
-const sizes = require('../sizes.json')
-
-const sharp = require('sharp')
-
+const dirName = require(resolve(__dirname, '../../dir_name.json'))
+const sizes = require(resolve(__dirname, '../../sizes.json'))
 
 try {
   createFile()
@@ -24,7 +22,7 @@ async function createFile() {
   const dirName1 = getDirName()
   const dirName2 = getDirName()
 
-  let dir = resolve(__dirname, '..', 'public', dirName1, dirName2)
+  let dir = resolve(__dirname, '../../public', dirName1, dirName2)
 
   let id
   do {
