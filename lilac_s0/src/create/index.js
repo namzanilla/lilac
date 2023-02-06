@@ -1,11 +1,18 @@
 const fs = require('fs')
 const path = require('path')
 const sharp = require('sharp')
+const http = require('http')
+const https = require('https')
 
 const allowedFileTypes = [ 'jpg' ]
 const { resolve } = path
 const dirName = require(resolve(__dirname, '../../dir_name.json'))
 const sizes = require(resolve(__dirname, '../../sizes.json'))
+
+const SOURCE = {
+  LOCAL_FILE: 0,
+  URL: 1,
+}
 
 try {
   createFile()
@@ -14,8 +21,15 @@ try {
 }
 
 async function createFile() {
-  const file = process.argv.slice(2)[0]
+  let file = process.argv.slice(2)[0]
   const ext = path.extname(file).slice(1)
+
+  const source = checkSource(file)
+
+  if (source === SOURCE.URL) {
+    await download(file, '/tmp/lilac_photo.'+ext)
+    file = `/tmp/lilac_photo.${ext}`
+  }
 
   checkFile(file, ext)
 
@@ -61,6 +75,62 @@ async function createFile() {
 
     console.log(`File ${outputFile} was created`)
   }
+}
+
+/**
+ * Downloads file from remote HTTP[S] host and puts its contents to the
+ * specified location.
+ */
+async function download(url, filePath) {
+  const proto = !url.charAt(4).localeCompare('s') ? https : http;
+
+  return new Promise((resolve, reject) => {
+    const file = fs.createWriteStream(filePath);
+    let fileInfo = null;
+
+    const request = proto.get(url, response => {
+      if (response.statusCode !== 200) {
+        fs.unlink(filePath, () => {
+          reject(new Error(`Failed to get '${url}' (${response.statusCode})`));
+        });
+        return;
+      }
+
+      fileInfo = {
+        mime: response.headers['content-type'],
+        size: parseInt(response.headers['content-length'], 10),
+      };
+
+      response.pipe(file);
+    });
+
+    // The destination stream is ended by the time it's called
+    file.on('finish', () => resolve(fileInfo));
+
+    request.on('error', err => {
+      fs.unlink(filePath, () => reject(err));
+    });
+
+    file.on('error', err => {
+      fs.unlink(filePath, () => reject(err));
+    });
+
+    request.end();
+  });
+}
+
+function checkSource(file) {
+  return isValidHttpUrl(file) ? SOURCE.URL : SOURCE.LOCAL_FILE
+}
+
+function isValidHttpUrl(string) {
+  let url;
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;
+  }
+  return url.protocol === "http:" || url.protocol === "https:";
 }
 
 function getDirName() {
