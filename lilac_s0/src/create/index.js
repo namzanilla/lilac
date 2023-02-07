@@ -4,7 +4,7 @@ const sharp = require('sharp')
 const http = require('http')
 const https = require('https')
 
-const allowedFileTypes = [ 'jpg' ]
+const allowedFileTypes = ['jpg']
 const { resolve } = path
 const dirName = require(resolve(__dirname, '../../dir_name.json'))
 const sizes = require(resolve(__dirname, '../../sizes.json'))
@@ -27,7 +27,7 @@ async function createFile() {
   const source = checkSource(file)
 
   if (source === SOURCE.URL) {
-    await download(file, '/tmp/lilac_photo.'+ext)
+    await download(file, '/tmp/lilac_photo.' + ext)
     file = `/tmp/lilac_photo.${ext}`
   }
 
@@ -70,8 +70,7 @@ async function createFile() {
       resizeOptions.height = height
     }
 
-    await image.resize(resizeOptions)
-      .toFile(outputFile)
+    await image.resize(resizeOptions).toFile(outputFile)
 
     console.log(`File ${outputFile} was created`)
   }
@@ -82,41 +81,41 @@ async function createFile() {
  * specified location.
  */
 async function download(url, filePath) {
-  const proto = !url.charAt(4).localeCompare('s') ? https : http;
+  const proto = !url.charAt(4).localeCompare('s') ? https : http
 
   return new Promise((resolve, reject) => {
-    const file = fs.createWriteStream(filePath);
-    let fileInfo = null;
+    const file = fs.createWriteStream(filePath)
+    let fileInfo = null
 
-    const request = proto.get(url, response => {
+    const request = proto.get(url, (response) => {
       if (response.statusCode !== 200) {
         fs.unlink(filePath, () => {
-          reject(new Error(`Failed to get '${url}' (${response.statusCode})`));
-        });
-        return;
+          reject(new Error(`Failed to get '${url}' (${response.statusCode})`))
+        })
+        return
       }
 
       fileInfo = {
         mime: response.headers['content-type'],
         size: parseInt(response.headers['content-length'], 10),
-      };
+      }
 
-      response.pipe(file);
-    });
+      response.pipe(file)
+    })
 
     // The destination stream is ended by the time it's called
-    file.on('finish', () => resolve(fileInfo));
+    file.on('finish', () => resolve(fileInfo))
 
-    request.on('error', err => {
-      fs.unlink(filePath, () => reject(err));
-    });
+    request.on('error', (err) => {
+      fs.unlink(filePath, () => reject(err))
+    })
 
-    file.on('error', err => {
-      fs.unlink(filePath, () => reject(err));
-    });
+    file.on('error', (err) => {
+      fs.unlink(filePath, () => reject(err))
+    })
 
-    request.end();
-  });
+    request.end()
+  })
 }
 
 function checkSource(file) {
@@ -124,13 +123,13 @@ function checkSource(file) {
 }
 
 function isValidHttpUrl(string) {
-  let url;
+  let url
   try {
-    url = new URL(string);
+    url = new URL(string)
   } catch (_) {
-    return false;
+    return false
   }
-  return url.protocol === "http:" || url.protocol === "https:";
+  return url.protocol === 'http:' || url.protocol === 'https:'
 }
 
 function getDirName() {
@@ -148,13 +147,14 @@ function checkFile(file, ext) {
 }
 
 function makeId(length) {
-  let result = '';
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  const charactersLength = characters.length;
-  let counter = 0;
+  let result = ''
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  const charactersLength = characters.length
+  let counter = 0
   while (counter < length) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    counter += 1;
+    result += characters.charAt(Math.floor(Math.random() * charactersLength))
+    counter += 1
   }
-  return result;
+  return result
 }

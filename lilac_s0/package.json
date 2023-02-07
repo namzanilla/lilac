@@ -4,12 +4,17 @@
   "description": "Сервис по работе с изображениями для товаров",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "sharp": "^0.31.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.3"
   }
 }
