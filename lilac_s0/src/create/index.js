@@ -3,6 +3,7 @@ const path = require('path')
 const sharp = require('sharp')
 const http = require('http')
 const https = require('https')
+const piexif = require('piexifjs')
 
 const allowedFileTypes = ['jpg']
 const { resolve } = path
@@ -46,8 +47,10 @@ async function createFile() {
   fs.mkdirSync(dir, { recursive: true })
 
   const oFile = `${dir}/o.${ext}`
-
-  fs.copyFileSync(file, oFile)
+  const imageData = getBase64DataFromJpegFile(file)
+  const scrubbedImageData = piexif.remove(imageData)
+  const imageBuffer = Buffer.from(scrubbedImageData, 'binary')
+  fs.writeFileSync(oFile, imageBuffer)
 
   for (const key in sizes) {
     const width = sizes[key][0]
@@ -74,6 +77,10 @@ async function createFile() {
 
     console.log(`File ${outputFile} was created`)
   }
+}
+
+function getBase64DataFromJpegFile(filename) {
+  return fs.readFileSync(filename).toString('binary')
 }
 
 /**
