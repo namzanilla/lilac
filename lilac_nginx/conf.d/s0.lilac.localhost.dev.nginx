@@ -1,0 +1,9 @@
+server {
+    charset utf-8;
+    listen 80;
+    server_name s0.lilac.localhost;
+    root /var/www/projects/lilac/lilac_s0/public;
+    rewrite ^/(.+)/$ /$1 permanent;
+
+    access_log off;
+}
