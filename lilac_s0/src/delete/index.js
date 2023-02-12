@@ -13,6 +13,8 @@ function deleteFile() {
   const id = process.argv.slice(2)[0]
   const dir = resolve(__dirname, '../../public', id)
   fs.rmSync(dir, { recursive: true, force: true })
-  // @todo remove if empty
-  /*const s = fs.readdirSync('../public/sg/xy')*/
+  const scan = fs.readdirSync(resolve(dir, '..'))
+  if (!scan.length) {
+    fs.rmSync(resolve(dir, '../..'), { recursive: true, force: true })
+  }
 }
