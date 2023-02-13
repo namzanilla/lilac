@@ -5,7 +5,7 @@ const { resolve } = path
 
 try {
   clear()
-} catch(e) {
+} catch (e) {
   console.error(e)
 }
 
