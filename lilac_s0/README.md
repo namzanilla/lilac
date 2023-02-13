@@ -6,17 +6,23 @@
 
 Пример создания из локального файла:
 
-    node src/create /path/to/file.jpg
+```shell
+node src/create /path/to/file.jpg
+```
 
 Данная команда создаст в директории **lilac_s0/public** примерно сдедующую структуру директорий **e2/fm/Akl9** (ID) и скопирует туда файл **/path/to/file.jpg** с названием **o.jpg**, то есть полный путь к файлу будет **lilac_s0/public/e2/fm/Akl9/o.jpg** (название директорий **e2** и **fm** произвольным образом _тянутся_ из файла **dir_name.json**, **Akl9** - _рандомный_ набор из 4х символов). Также будут созданы файлы с размерами перечисленными в файле **sizes.json**.
 
 Пример создания из URL:
 
-    node src/create https://example.com/photo.jpg
+```shell
+node src/create https://example.com/photo.jpg
+```
 
 ### Удаление файла по ID
 
-    node src/delete e2/fm/Akl9
+```shell
+node src/delete e2/fm/Akl9
+```
 
 Данная команда удалит директорию **lilac_s0/public/e2/fm/Akl9** вместе с ее содержимым.
 
@@ -30,12 +36,16 @@ node src/dump
 
 ### Удаление всего контента
 
-    node src/clear-public
+```shell
+node src/clear-public
+```
 
 Удаляет все данные в папке **lilac_s0/public**.
 
 ### Удаление всех временных файлов/папок
 
-    node src/clear-public
+```shell
+node src/clear-tmp
+```
 
 Удаляет все данные в папке **lilac_s0/tmp**.
