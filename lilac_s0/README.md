@@ -30,4 +30,10 @@
 
     node src/clear-public
 
-Удаляет все данные в папке **lilac_s0/public**
+Удаляет все данные в папке **lilac_s0/public**.
+
+### Удаление всех временных файлов/папок
+
+    node src/clear-public
+
+Удаляет все данные в папке **lilac_s0/tmp**.
