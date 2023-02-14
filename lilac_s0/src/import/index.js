@@ -28,7 +28,7 @@ function importData() {
 }
 
 function cleanPublic() {
-  const script = resolve(__dirname, '../clear-public')
+  const script = resolve(__dirname, '../clean-public')
   const cmd = `node ${script}`
   execSync(cmd)
 }

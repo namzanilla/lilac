@@ -4,12 +4,12 @@ const fs = require('fs')
 const { resolve } = path
 
 try {
-  clear()
+  clean()
 } catch (e) {
   console.error(e)
 }
 
-function clear() {
+function clean() {
   const dir = resolve(__dirname, '../../tmp')
   const scan = fs.readdirSync(dir)
   for (const el of scan) {
