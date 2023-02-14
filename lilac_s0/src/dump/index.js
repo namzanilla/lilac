@@ -2,6 +2,7 @@ const fs = require('fs')
 const fse = require('fs-extra')
 const path = require('path')
 const archiver = require('archiver')
+const { execSync } = require('child_process')
 
 const { resolve } = path
 
@@ -11,7 +12,7 @@ const dumpFile = `${tmpDir}/dump.zip`
 const tmpPublicDir = `${tmpDir}/public`
 
 try {
-  clearTmpDir(tmpDir, dumpFile)
+  clearTmpDir()
   copy(srcDir, tmpPublicDir)
   rmNeedlessFiles(tmpPublicDir)
   makeZip(dumpFile, tmpDir, tmpPublicDir)
@@ -71,18 +72,10 @@ function copy(srcDir, tmpDir) {
   fse.copySync(srcDir, tmpDir)
 }
 
-function clearTmpDir(tmpDir, dumpFile) {
-  const tmpPublicDir = `${tmpDir}/public`
-
-  if (fs.existsSync(tmpPublicDir)) {
-    fs.rmSync(tmpPublicDir, { recursive: true, force: true })
-  }
-
-  fs.mkdirSync(tmpPublicDir, { recursive: true })
-
-  if (fs.existsSync(dumpFile)) {
-    fs.rmSync(dumpFile)
-  }
+function clearTmpDir() {
+  const script = resolve(__dirname, '../clear-tmp')
+  const cmd = `node ${script}`
+  execSync(cmd)
 }
 
 function rmNeedlessFiles(dir) {
