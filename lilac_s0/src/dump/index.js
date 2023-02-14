@@ -12,7 +12,7 @@ const dumpFile = `${tmpDir}/dump.zip`
 const tmpPublicDir = `${tmpDir}/public`
 
 try {
-  clearTmpDir()
+  cleanTmpDir()
   copy(srcDir, tmpPublicDir)
   rmNeedlessFiles(tmpPublicDir)
   makeZip(dumpFile, tmpDir, tmpPublicDir)
@@ -72,8 +72,8 @@ function copy(srcDir, tmpDir) {
   fse.copySync(srcDir, tmpDir)
 }
 
-function clearTmpDir() {
-  const script = resolve(__dirname, '../clear-tmp')
+function cleanTmpDir() {
+  const script = resolve(__dirname, '../clean-tmp')
   const cmd = `node ${script}`
   execSync(cmd)
 }

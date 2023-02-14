@@ -37,7 +37,7 @@ node src/dump
 ### Удаление всего контента
 
 ```shell
-node src/clear-public
+node src/clean-public
 ```
 
 Удаляет все данные в папке **lilac_s0/public**.
@@ -45,7 +45,7 @@ node src/clear-public
 ### Удаление всех временных файлов/папок
 
 ```shell
-node src/clear-tmp
+node src/clean-tmp
 ```
 
 Удаляет все данные в папке **lilac_s0/tmp**.
